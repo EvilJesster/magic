@@ -1,0 +1,99 @@
+<DOCTYPE! <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>You have been hacked</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script>
+      function pictureChange()
+      {
+            var body = document.getElementsByTagName('body')[0];
+            body.style.backgroundImage = 'url(animation.gif)';
+            var h1 = document.getElementsByClassName('magic');
+            var i;
+            for (i = 0; i < h1.length; i++) {
+              h1[i].innerHTML = " ";
+            }
+            var h1 = document.getElementsByClassName('magic');
+                var i;
+                for (i = 0; i < h1.length; i++) {
+                  h1[i].innerHTML = " ";
+                }
+            var x = document.getElementById("trigger");
+            x.style.display = "none";
+            var y = document.getElementsByTagName('div');
+            y.style.display = "none";
+      }
+      function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+      }
+
+      window.onload = function () {
+          var fiveMinutes = 60 * 20,
+              display = document.querySelector('#time');
+          startTimer(fiveMinutes, display);
+      };
+      
+    </script>
+    <style>
+      body {
+        background-image: url("background.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        color: red;
+      }
+      .magic {
+        margin-top: 5%;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+      }
+      button {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 70%;
+        display: inline;
+      }
+      button:hover{
+      
+        color: red;
+        
+      }
+      div {
+        display: inline;
+      }
+      
+    </style>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  
+    
+    <h1 class="magic"> Your computer has been hacked by the chaos computer group. </h1>
+    <h1 class="magic"> Your files have been locked and encrypted, the private keys have been stored on our servers. </h1>
+    <h1 class="magic"> If you ever want to see your files again, then pay $500 USD.</h1>
+    <div class ="magic">In <span id="time">20:00</span> minutes your files will be deleted</div>
+    <br>
+    <h1 class="magic"></h1>
+    <button id="trigger" onclick="pictureChange()">Click here to pay $500 to unlock it</button>
+  </body>
+</html>
